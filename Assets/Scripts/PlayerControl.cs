@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    public GroundDetection ground;
     private Rigidbody2D rb2d;
     private Transform tf;
     private SpriteRenderer sr;
@@ -12,7 +13,6 @@ public class PlayerControl : MonoBehaviour
     public float speed = 5.0f;
     public float jumpForce = 10.0f;
     public Transform GroundPoint;
-    public bool isGrounded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,22 +43,12 @@ public class PlayerControl : MonoBehaviour
             animator.Play("PlayerIdle");
         }
         //Detect if player is on the ground
-        bool isGrounded = false;
-        RaycastHit2D hitInfo = Physics2D.Raycast(GroundPoint.position, Vector2.down, 0.1f);
-        if (hitInfo.collider != null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        
         //jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && ground.isGrounded)
         {
             rb2d.AddForce(Vector2.up * jumpForce);
             Debug.Log("Jump");
         }
-        rb2d.AddForce(Vector2.up * jumpForce);
     }
 }
