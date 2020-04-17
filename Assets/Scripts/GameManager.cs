@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
 
     public int PlayerScore = 0;
 
+    public Transform CurrentSpawnPoint;
+
+    public GameObject PlayerPrefab;
+
     void Awake()
     {
 
@@ -45,6 +49,11 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene(currentScene + 1);
+    }
+
+    public void SpawnPlayer()
+    {
+        Instantiate(PlayerPrefab, CurrentSpawnPoint.position, Quaternion.identity);
     }
 }
  

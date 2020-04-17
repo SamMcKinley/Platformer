@@ -9,6 +9,7 @@ public class EndLevel : MonoBehaviour
        // If the game object that entered the trigger is our player, then load the next level. 
        if (other.gameObject.name == "Player")
         {
+            GameManager.instance.CurrentSpawnPoint = null;
             GameManager.instance.LoadNextScene();
         }
     }
