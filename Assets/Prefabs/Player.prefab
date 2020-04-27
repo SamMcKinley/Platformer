@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 8380112055213366747}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 2048970558251034839}
   speed: 5
-  jumpForce: 500
+  jumpForce: 375
   GroundPoint: {fileID: 4042786402482496312}
 --- !u!50 &8380112055213366747
 Rigidbody2D:
